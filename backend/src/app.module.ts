@@ -3,6 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TransactionsModule } from './transactions/transactions.module';
+import { VendingMachinesModule } from './vending_machines/vending_machines.module';
+import { WaterProductsModule } from './water_products/water_products.module';
+import { TransactionDetailsModule } from './transaction_details/transaction_details.module';
 
 @Module({
   imports: [
@@ -18,6 +22,10 @@ import { AppService } from './app.service';
       synchronize: true,
       entities: [],
     }),
+    TransactionsModule,
+    VendingMachinesModule,
+    WaterProductsModule,
+    TransactionDetailsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
