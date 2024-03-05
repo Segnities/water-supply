@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { VendingMachine } from "src/vending_machines/entities/vending_machine.entity";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 
 @Entity()
 export class Transaction {
@@ -10,4 +11,7 @@ export class Transaction {
 
    @Column({type: 'decimal'})
    amount:number;
+
+   @ManyToOne(()=> VendingMachine, vendingMachine=> vendingMachine.transactions)
+   vending_machine:VendingMachine;
 }

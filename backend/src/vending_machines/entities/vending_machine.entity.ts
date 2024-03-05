@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Transaction } from "src/transactions/entities/transaction.entity";
 
 @Entity()
 export class VendingMachine {
@@ -10,4 +11,7 @@ export class VendingMachine {
 
    @Column({type: 'text'})
    description:string;
+
+   @OneToMany(()=> Transaction, transaction => transaction.vending_machine)
+   transactions: Transaction[]
 }

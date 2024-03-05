@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TransactionDetailsService } from './transaction_details.service';
-
 describe('TransactionDetailsService', () => {
+  
   let service: TransactionDetailsService;
 
   beforeEach(async () => {
